@@ -1,0 +1,67 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.bugtags.library.plugin'
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
+
+    defaultConfig {
+        applicationId "com.weilay.pos"
+        minSdkVersion 14
+        targetSdkVersion 27
+
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+
+    useLibrary 'org.apache.http.legacy'
+
+//    dexOptions {
+//        javaMaxHeapSize "4g"
+//        incremental true
+//    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/dependencies.txt'
+        exclude 'META-INF/LGPL2.1'
+        exclude 'META-INF/ASL2.0'
+    }
+}
+
+dependencies {
+    implementation project(':weilaiHelper')
+//    implementation project(':bugtagsAndroidEclipseLib')
+    implementation 'com.bugtags.library:bugtags-lib:3.0.0'
+    implementation 'com.google.code.gson:gson:2.8.4'
+    implementation files('libs/classes.jar')
+    implementation files('libs/Msc.jar')
+    implementation files('libs/xUtils-2.6.14.jar')
+    implementation files('libs/okhttp-3.4.1.jar')
+    implementation files('libs/okio-1.6.0.jar')
+    implementation files('libs/Sunflower.jar')
+    implementation files('libs/universal-image-loader-1.9.5.jar')
+    implementation files('libs/xstream-1.4.1.jar')
+    implementation files('libs/ZxingHelper-1.0.jar')
+    implementation files('libs/ZxingHelperItem-1.0.jar')
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.android.support:support-v4:27.1.1'
+
+}

@@ -1,0 +1,1 @@
+include ':bugtagsAndroidEclipseLib',':weilaiHelper',':f_manage'
